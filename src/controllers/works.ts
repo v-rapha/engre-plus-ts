@@ -1,8 +1,9 @@
-describe('Works functional tests', () => {
-  it('should return a list with just a few works', async () => {
-    const { body, status } = await global.testRequest.get('/works');
-    expect(status).toBe(200);
-    expect(body).toEqual([{
+import { Request, Response } from "express";
+
+
+export class WorksController {
+  public getWorksForLoggedUser(_: Request, res: Response): void {
+    res.status(200).send([{
       "client": "José Will",
       "description": "KSF90-Engrenagem",
       "price": 190.90,
@@ -17,5 +18,5 @@ describe('Works functional tests', () => {
       "finalDate": "08/09/2020",
       "timeLeft": 1
     }]);
-  });
-})
+  }
+}
