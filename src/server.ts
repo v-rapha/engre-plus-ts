@@ -20,5 +20,4 @@ export class SetupServer {
   private setupRoutes(): void {
     this.express.use(routes);
   }
-
 }
