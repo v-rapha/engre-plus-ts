@@ -4,7 +4,7 @@ import routes from './routes';
 export class SetupServer {
   public express;
 
-  constructor(port = 3000) {
+  constructor(private port = 3000) {
     this.express = express();
   }
 
