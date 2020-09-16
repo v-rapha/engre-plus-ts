@@ -1,5 +1,5 @@
 import express from 'express';
-import { WorksController } from './controllers/works';
+import { WorksController } from './controllers/work';
 
 const routes = express.Router();
 
