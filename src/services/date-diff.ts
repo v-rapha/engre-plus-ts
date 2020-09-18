@@ -1,3 +1,5 @@
+import config from 'config';
+
 export interface Work {
   client: string;
   description: string;
@@ -27,7 +29,7 @@ export class DateDiff {
         finalDate: work.finalDate,
         timeLeft: dateDiff,
       };
-      worksWithDateDiff.push(enrichedWorkData);
+      worksWithDateDiff.push({ ...enrichedWorkData });
     }
     return worksWithDateDiff;
   }
@@ -36,11 +38,11 @@ export class DateDiff {
     initialDate: number,
     finalDate: number
   ): number {
-    const today = new Date().setHours(0, 0, 0, 0);
-    if(finalDate < today) {
+    const today: number = config.get('App.staticDate') || new Date().setHours(0, 0, 0, 0);
+    if (finalDate < today) {
       const negativeDifference = finalDate - today;
       const finalValueNegative = negativeDifference / (1000 * 60 * 60 * 24);
-      return finalValueNegative
+      return finalValueNegative;
     }
     const millisecondsDifference = Math.abs(initialDate - finalDate);
     const differenceInDays = millisecondsDifference / (1000 * 60 * 60 * 24);
