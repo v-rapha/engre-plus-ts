@@ -79,6 +79,12 @@ describe('Date-Diff Service', () => {
       );
       expect(worksWithDateDifference).toEqual(expectedResponse);
     });
+
+    it('should return an empty list when the works array is empty', () => {
+      const dateDiff = new DateDiff();
+      const response = dateDiff.processDateDifferenceForWorks([]);
+      expect(response).toEqual([]);
+    });
   });
 
   describe('Get positive values for given dates', () => {

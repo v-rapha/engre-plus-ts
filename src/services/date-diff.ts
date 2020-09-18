@@ -34,18 +34,22 @@ export class DateDiff {
     return worksWithDateDiff;
   }
 
+  // TODO: try to make the method more clearer
   public calculateDateDifference(
     initialDate: number,
     finalDate: number
   ): number {
-    const today: number = config.get('App.staticDate') || new Date().setHours(0, 0, 0, 0);
+    const today: number =
+      config.get('App.staticDate') || new Date().setHours(0, 0, 0, 0);
     if (finalDate < today) {
       const negativeDifference = finalDate - today;
-      const finalValueNegative = negativeDifference / (1000 * 60 * 60 * 24);
-      return finalValueNegative;
+      return this.convertMillisecondsToDays(negativeDifference);
     }
     const millisecondsDifference = Math.abs(initialDate - finalDate);
-    const differenceInDays = millisecondsDifference / (1000 * 60 * 60 * 24);
-    return differenceInDays;
+    return this.convertMillisecondsToDays(millisecondsDifference);
+  }
+
+  private convertMillisecondsToDays(milliseconds: number): number {
+    return milliseconds / (1000 * 60 * 60 * 24);
   }
 }
