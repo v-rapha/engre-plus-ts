@@ -29,6 +29,7 @@ export class DateDiff {
         finalDate: work.finalDate,
         timeLeft: dateDiff,
       };
+      // I think the spread operator is not necessary here
       worksWithDateDiff.push({ ...enrichedWorkData });
     }
     return worksWithDateDiff;

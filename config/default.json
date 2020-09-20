@@ -1,5 +1,7 @@
 {
   "App": {
-    
+    "database": {
+      "postgresUrl": "postgresql://v-rapha:lplp12345@localhost:5432/engre-plus"
+    }
   }
 }

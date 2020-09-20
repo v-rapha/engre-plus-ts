@@ -13,7 +13,8 @@
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "style:check": "prettier --check src/**/*.ts test/**/*.ts",
-    "style:fix": "prettier --write src/**/*.ts test/**/*.ts"
+    "style:fix": "prettier --write src/**/*.ts test/**/*.ts",
+    "typeorm": "npx ts-node ./node_modules/typeorm/cli.js"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "prettier": "^2.1.1",
     "supertest": "^4.0.2",
     "ts-jest": "^26.3.0",
+    "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0-pre.62",
     "typescript": "^4.0.2"
   },
@@ -51,6 +53,9 @@
     "body-parser": "^1.19.0",
     "config": "^3.3.1",
     "express": "^4.17.1",
-    "module-alias": "^2.2.2"
+    "module-alias": "^2.2.2",
+    "pg": "^8.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.26"
   }
 }
