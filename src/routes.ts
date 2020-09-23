@@ -1,11 +1,11 @@
 import express from 'express';
-import { SalesController } from './controllers/sales';
-import { WorksController } from './controllers/work';
+import { SaleController } from './controllers/SaleController';
+import { WorkController } from './controllers/WorkController';
 
 const routes = express.Router();
 
-const worksController = new WorksController();
-const salesController = new SalesController();
+const worksController = new WorkController();
+const salesController = new SaleController();
 
 routes.get('/works', worksController.getWorksForLoggedUser);
 
