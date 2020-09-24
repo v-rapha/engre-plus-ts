@@ -1,14 +1,21 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
+import { getRepository, QueryFailedError } from 'typeorm';
 
 import { Sale } from '@src/database/models/Sale';
 
 export class SaleController {
   public async create(req: Request, res: Response): Promise<void> {
-    const repository = getRepository(Sale);
-    const sale = repository.create(req.body);
-    const abc = await repository.save(sale);
-
-    res.status(201).send(abc);
+    try {
+      const repository = getRepository(Sale);
+      const saleEntity = repository.create(req.body);
+      const sale = await repository.save(saleEntity);
+      res.status(201).send(sale);
+    } catch (error) {
+      if (error instanceof QueryFailedError) {
+        res.status(422).send({ error: error.message });
+      } else {
+        res.status(500).send({ error: 'Internal Server Error' });
+      }
+    }
   }
 }
