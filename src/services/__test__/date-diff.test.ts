@@ -24,24 +24,24 @@ describe('Date-Diff Service', () => {
           client: 'José Will',
           description: 'KSF90-Engrenagem',
           price: 190.9,
-          initialDate: DefaultDates.SEP_TWELVE,
-          finalDate: DefaultDates.SEP_SEVENTEEN,
+          initial_date: DefaultDates.SEP_TWELVE,
+          final_date: DefaultDates.SEP_SEVENTEEN,
           employee: 'employee_id',
         },
         {
           client: 'Will',
           description: 'KSF99-Engrenagem',
           price: 199.9,
-          initialDate: DefaultDates.SEP_SIXTEEN,
-          finalDate: DefaultDates.SEP_SEVENTEEN,
+          initial_date: DefaultDates.SEP_SIXTEEN,
+          final_date: DefaultDates.SEP_SEVENTEEN,
           employee: 'employee_id',
         },
         {
           client: 'Raphael',
           description: 'KSF50-Engrenagem',
           price: 150.9,
-          initialDate: DefaultDates.SEP_TWELVE,
-          finalDate: DefaultDates.SEP_SIXTEEN,
+          initial_date: DefaultDates.SEP_TWELVE,
+          final_date: DefaultDates.SEP_SIXTEEN,
           employee: 'employee_id',
         },
       ];
@@ -51,24 +51,24 @@ describe('Date-Diff Service', () => {
           client: 'José Will',
           description: 'KSF90-Engrenagem',
           price: 190.9,
-          initialDate: DefaultDates.SEP_TWELVE,
-          finalDate: DefaultDates.SEP_SEVENTEEN,
+          initial_date: '12/09/2020',
+          final_date: '17/09/2020',
           timeLeft: 5,
         },
         {
           client: 'Will',
           description: 'KSF99-Engrenagem',
           price: 199.9,
-          initialDate: DefaultDates.SEP_SIXTEEN,
-          finalDate: DefaultDates.SEP_SEVENTEEN,
+          initial_date: '16/09/2020',
+          final_date: '17/09/2020',
           timeLeft: 1,
         },
         {
           client: 'Raphael',
           description: 'KSF50-Engrenagem',
           price: 150.9,
-          initialDate: DefaultDates.SEP_TWELVE,
-          finalDate: DefaultDates.SEP_SIXTEEN,
+          initial_date: '12/09/2020',
+          final_date: '16/09/2020',
           timeLeft: -1,
         },
       ];
@@ -153,5 +153,32 @@ describe('Date-Diff Service', () => {
       );
       expect(timeLeft).toBe(-31);
     });
+  });
+});
+
+describe('Format Date', () => {
+  const defaultDateDiff = new DateDiff();
+  it('should format the millisecond date for a readable date ("16/09/2020", "17/09/2020")', () => {
+    const sm = defaultDateDiff.formatDateWithMilliseconds([
+      DefaultDates.SEP_SIXTEEN,
+      DefaultDates.SEP_SEVENTEEN,
+    ]);
+    expect(sm).toEqual(['16/09/2020', '17/09/2020']);
+  });
+
+  it('should format the millisecond date for a readable date ("20/08/2020", "12/09/2020")', () => {
+    const sm = defaultDateDiff.formatDateWithMilliseconds([
+      DefaultDates.AUG_TWENTY,
+      DefaultDates.SEP_TWELVE,
+    ]);
+    expect(sm).toEqual(['20/08/2020', '12/09/2020']);
+  });
+
+  it('should format the millisecond date for a readable date ("17/09/2020", "17/10/2020")', () => {
+    const sm = defaultDateDiff.formatDateWithMilliseconds([
+      DefaultDates.SEP_SEVENTEEN,
+      DefaultDates.OCT_SEVENTEEN,
+    ]);
+    expect(sm).toEqual(['17/09/2020', '17/10/2020']);
   });
 });

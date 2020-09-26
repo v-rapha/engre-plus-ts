@@ -1,24 +1,15 @@
+import { Sale } from '@src/database/models/Sale';
+import { DateDiff } from '@src/services/date-diff';
 import { Request, Response } from 'express';
+import { getRepository } from 'typeorm';
+
+const dateDifference = new DateDiff();
 
 export class WorkController {
-  public getWorksForLoggedUser(_: Request, res: Response): void {
-    res.status(200).send([
-      {
-        client: 'José Will',
-        description: 'KSF90-Engrenagem',
-        price: 190.9,
-        initial_date: '11/09/2020',
-        final_date: '15/09/2020',
-        timeLeft: 4,
-      },
-      {
-        client: 'Will Smith',
-        description: 'KSF50-Engrenagem',
-        price: 120.55,
-        initial_date: '09/09/2020',
-        final_date: '08/09/2020',
-        timeLeft: 1,
-      },
-    ]);
+  public async getWorksForLoggedUser(_: Request, res: Response): Promise<void> {
+    const sales = await getRepository(Sale).find({});
+    const worksDateDiff = dateDifference.processDateDifferenceForWorks(sales);
+    console.log(worksDateDiff);
+    res.status(200).send(worksDateDiff);
   }
 }
