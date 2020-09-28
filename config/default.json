@@ -1,7 +1,12 @@
 {
   "App": {
+    "port": 3000,
     "database": {
       "postgresUrl": "postgresql://v-rapha:lplp12345@localhost:5432/engre-plus"
+    },
+    "typeorm_path": {
+      "entities": "dist/entity/*.js",
+      "migrations": "dist/entity/*.js"
     }
   }
 }

@@ -1,0 +1,2 @@
+## The module-alias do not work with typeorm (prod mode) for some reason and i don't know why and how to resolve it.
+## I had to move the entire configuration of the ormconfig.js for the connection.ts because the TS didn't compile the file (i don't know how to resolve it).

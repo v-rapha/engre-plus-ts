@@ -20,6 +20,12 @@ export class SetupServer {
     await connection.close();
   }
 
+  public start(): void {
+    this.express.listen(this.port, () => {
+      console.info('Server listening on port:', this.port);
+    });
+  }
+
   private setupExpress(): void {
     this.express.use(express.json());
   }
