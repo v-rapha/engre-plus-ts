@@ -5,8 +5,8 @@
       "postgresUrl": "postgresql://v-rapha:lplp12345@localhost:5432/engre-plus"
     },
     "typeorm_path": {
-      "entities": "dist/entity/*.js",
-      "migrations": "dist/entity/*.js"
+      "entities": "dist/src/database/models/*.js",
+      "migrations": "dist/src/database/migrations/*.js"
     }
   }
 }

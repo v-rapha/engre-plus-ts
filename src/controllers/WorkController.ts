@@ -10,9 +10,10 @@ export class WorkController {
     try {
       const sales = await getRepository(Sale).find({});
       const worksDateDiff = dateDifference.processDateDifferenceForWorks(sales);
-      // console.log(worksDateDiff);
+      console.log(worksDateDiff);
       res.status(200).send(worksDateDiff);
     } catch (error) {
+      console.log(error);
       res.status(500).send({ error: 'Something went wrong ' });
     }
   }

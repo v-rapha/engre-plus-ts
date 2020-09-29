@@ -10,6 +10,7 @@ export enum DefaultDates {
   SEP_TWELVE = 1599879600000,
   SEP_SIXTEEN = 1600225200000,
   SEP_SEVENTEEN = 1600311600000,
+  SEP_TWENTY_TWO = 1600743600000,
   SEP_TWENTY_SIX = 1601089200000,
   OCT_FOURTEEN = 1602644400000,
   OCT_SEVENTEEN = 1602903600000,
@@ -24,8 +25,8 @@ describe('Date-Diff Service', () => {
           client: 'José Will',
           description: 'KSF90-Engrenagem',
           price: 190.9,
-          initial_date: DefaultDates.SEP_TWELVE,
-          final_date: DefaultDates.SEP_SEVENTEEN,
+          initial_date: DefaultDates.SEP_SEVENTEEN,
+          final_date: DefaultDates.SEP_TWENTY_TWO,
           employee: 'employee_id',
         },
         {
@@ -51,8 +52,8 @@ describe('Date-Diff Service', () => {
           client: 'José Will',
           description: 'KSF90-Engrenagem',
           price: 190.9,
-          initial_date: '12/09/2020',
-          final_date: '17/09/2020',
+          initial_date: '17/09/2020',
+          final_date: '22/09/2020',
           timeLeft: 5,
         },
         {
@@ -61,7 +62,7 @@ describe('Date-Diff Service', () => {
           price: 199.9,
           initial_date: '16/09/2020',
           final_date: '17/09/2020',
-          timeLeft: 1,
+          timeLeft: 0,
         },
         {
           client: 'Raphael',
@@ -93,7 +94,7 @@ describe('Date-Diff Service', () => {
         DefaultDates.SEP_SIXTEEN,
         DefaultDates.SEP_SEVENTEEN
       );
-      expect(timeLeft).toBe(1);
+      expect(timeLeft).toBe(0);
     });
 
     it('should get date difference of 10 for the given date (2020-09-16 to 2020-09-26)', () => {

@@ -58,11 +58,15 @@ export class DateDiff {
     initialDate: number,
     finalDate: number
   ): number {
-    const today: number =
-      config.get('App.staticDate') || new Date().setHours(0, 0, 0, 0);
-    if (finalDate < today) {
+    const today: number = config.has('App.staticDate')
+      ? config.get('App.staticDate')
+      : new Date().setHours(0, 0, 0, 0);
+    if (Number(finalDate) < today) {
       const negativeDifference = finalDate - today;
       return this.convertMillisecondsToDays(negativeDifference);
+    }
+    if (Number(finalDate) === today) {
+      return finalDate - today;
     }
     const millisecondsDifference = Math.abs(initialDate - finalDate);
     return this.convertMillisecondsToDays(millisecondsDifference);
