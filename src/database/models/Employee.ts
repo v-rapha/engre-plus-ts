@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BeforeInsert,
+  BeforeUpdate,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import AuthService from '../../services/auth';
 
 @Entity('employees')
 export class Employee {
@@ -13,4 +20,10 @@ export class Employee {
 
   @Column()
   password!: string;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  async hashPassword(): Promise<void> {
+    this.password = await AuthService.hashPassword(this.password);
+  }
 }

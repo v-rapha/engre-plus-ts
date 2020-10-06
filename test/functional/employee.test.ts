@@ -1,10 +1,11 @@
 import { Employee } from '@src/database/models/Employee';
+import AuthService from '@src/services/auth';
 import { getRepository } from 'typeorm';
 
 describe('Users functional tests', () => {
   beforeEach(async () => await getRepository(Employee).delete({}));
   describe('When creating a new employee', () => {
-    it('should successfully create a new employee', async () => {
+    it('should successfully create a new employee with encrypted password', async () => {
       const newEmployee = {
         name: 'John Doe',
         email: 'john@email.com',
@@ -14,7 +15,18 @@ describe('Users functional tests', () => {
         .post('/employee')
         .send(newEmployee);
       expect(response.status).toBe(201);
-      expect(response.body).toEqual(expect.objectContaining(newEmployee));
+      await expect(
+        AuthService.comparePasswords(
+          newEmployee.password,
+          response.body.password
+        )
+      ).resolves.toBeTruthy();
+      expect(response.body).toEqual(
+        expect.objectContaining({
+          ...newEmployee,
+          ...{ password: expect.any(String) },
+        })
+      );
     });
 
     it('should return 422 when there is a validation error', async () => {
