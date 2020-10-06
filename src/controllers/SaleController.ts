@@ -14,7 +14,6 @@ export class SaleController {
       if (error instanceof QueryFailedError) {
         res.status(422).send({ error: error.message });
       } else {
-        console.log(error);
         res.status(500).send({ error: 'Internal Server Error' });
       }
     }
