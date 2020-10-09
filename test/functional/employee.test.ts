@@ -62,4 +62,43 @@ describe('Users functional tests', () => {
       });
     });
   });
+
+  describe('When authenticating a employee', () => {
+    it('should generate a token for a valid employee', async () => {
+      const newEmployee = {
+        name: 'John Doe',
+        email: 'john@email.com',
+        password: '1234',
+      };
+      // For some reason the line below does not work (the password is not encrypted)
+      // await getRepository(Employee).save(newEmployee);
+      await global.testRequest.post('/employee').send(newEmployee);
+      const response = await global.testRequest
+        .post('/employee/authenticate')
+        .send({ email: newEmployee.email, password: newEmployee.password });
+      expect(response.body).toEqual(
+        expect.objectContaining({ token: expect.any(String) })
+      );
+    });
+
+    it('should return UNAUTHORIZED if the employee with the given email is not found', async () => {
+      const response = await global.testRequest
+        .post('/employee/authenticate')
+        .send({ email: 'some-email@email.com', password: '1234' });
+      expect(response.status).toBe(401);
+    });
+
+    it('should return UNAUTHORIZED if the employee is found but the password does not match', async () => {
+      const newEmployee = {
+        name: 'John Doe',
+        email: 'john@email.com',
+        password: '1234',
+      };
+      await global.testRequest.post('/employee').send(newEmployee);
+      const response = await global.testRequest
+        .post('/employee/authenticate')
+        .send({ email: newEmployee.email, password: 'different password' });
+      expect(response.status).toBe(401);
+    });
+  });
 });

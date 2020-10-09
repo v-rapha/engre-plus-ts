@@ -15,4 +15,6 @@ routes.post('/sales', salesController.create);
 
 routes.post('/employee', employeeController.create);
 
+routes.post('/employee/authenticate', employeeController.authenticate);
+
 export default routes;
