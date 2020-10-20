@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateEmployeeTable1601429077086 implements MigrationInterface {
+export class CreateEmployeeTable1600742299863 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
 
@@ -38,7 +38,7 @@ export class CreateEmployeeTable1601429077086 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('employees');
-    await queryRunner.query('DROP EXTENSION "uuid-ossp"');
+    await queryRunner.query('DROP TABLE IF EXISTS employees CASCADE');
+    await queryRunner.query('DROP EXTENSION IF EXISTS "uuid-ossp" CASCADE');
   }
 }

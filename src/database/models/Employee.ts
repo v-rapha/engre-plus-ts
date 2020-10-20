@@ -3,9 +3,12 @@ import {
   BeforeUpdate,
   Column,
   Entity,
+  JoinColumn,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import AuthService from '../../services/auth';
+import { Sale } from './Sale';
 
 @Entity('employees')
 export class Employee {
@@ -20,6 +23,12 @@ export class Employee {
 
   @Column()
   password!: string;
+
+  @OneToMany(() => Sale, sale => sale.employee, {
+    cascade: ['insert', 'update'],
+  })
+  @JoinColumn({ name: 'employee_id' })
+  sales!: Sale[];
 
   @BeforeInsert()
   @BeforeUpdate()

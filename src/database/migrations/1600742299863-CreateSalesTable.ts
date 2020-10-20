@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateSalesTable1600742299863 implements MigrationInterface {
+export class CreateSalesTable1601429077086 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
 
@@ -41,13 +41,28 @@ export class CreateSalesTable1600742299863 implements MigrationInterface {
             type: 'bigint',
             isNullable: false,
           },
+          {
+            name: 'employee_id',
+            type: 'uuid',
+            isNullable: false,
+          },
+        ],
+        foreignKeys: [
+          {
+            name: 'EmployeeSale',
+            columnNames: ['employee_id'],
+            referencedTableName: 'employees',
+            referencedColumnNames: ['id'],
+            onUpdate: 'CASCADE',
+            onDelete: 'CASCADE',
+          },
         ],
       })
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('sales');
-    await queryRunner.query('DROP EXTENSION "uuid-ossp"');
+    await queryRunner.query('DROP TABLE IF EXISTS sales CASCADE');
+    await queryRunner.query('DROP EXTENSION IF EXISTS "uuid-ossp" CASCADE');
   }
 }

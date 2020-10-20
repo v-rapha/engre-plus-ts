@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Employee } from './Employee';
 
 @Entity('sales')
 export class Sale {
@@ -19,4 +26,10 @@ export class Sale {
 
   @Column('int')
   final_date!: number;
+
+  @ManyToOne(() => Employee, employee => employee.sales, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'employee_id' })
+  employee!: Employee;
 }
