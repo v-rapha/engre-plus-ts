@@ -1,4 +1,4 @@
-import { Sale } from '../database/models/Sale';
+import { Sale } from '../models/Sale';
 import { DateDiff } from '../services/date-diff';
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';

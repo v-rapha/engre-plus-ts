@@ -1,4 +1,4 @@
-import { Employee } from '@src/database/models/Employee';
+import { Employee } from '@src/models/Employee';
 import AuthService from '@src/services/auth';
 import { getRepository } from 'typeorm';
 

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository, QueryFailedError } from 'typeorm';
 
-import { Sale } from '../database/models/Sale';
+import { Sale } from '../models/Sale';
 
 export class SaleController {
   public async create(req: Request, res: Response): Promise<void> {

@@ -1,4 +1,4 @@
-import { Sale } from '@src/database/models/Sale';
+import { Sale } from '@src/models/Sale';
 import { DefaultDates } from '@src/services/__test__/date-diff.test';
 import { getRepository } from 'typeorm';
 

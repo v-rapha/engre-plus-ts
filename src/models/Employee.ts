@@ -7,7 +7,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import AuthService from '../../services/auth';
+import AuthService from '../services/auth';
 import { Sale } from './Sale';
 
 @Entity('employees')

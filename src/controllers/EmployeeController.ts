@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-import { Employee } from '../database/models/Employee';
+import { Employee } from '../models/Employee';
 import { BaseController } from '.';
 import AuthService from '../services/auth';
 
