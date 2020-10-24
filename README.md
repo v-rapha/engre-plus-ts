@@ -4,3 +4,5 @@
 ## In the employee.test.ts on duplicate test should be returning 409 however i don't know how to do this with typeorm.
 ## On index.ts in the src\controllers\index.ts the this scope is "strange" this makes me call super on EmployeeController... How to resolve it?
 ## When i was creating the relationship between "employees" and "sales" tables i had a problem in the order to run the migrations (the CreateSalesTable migration was ahead of CreateEmployeeTable migration), so i had to change/invert the timestamp order, however it only works in the end of the class name and not on the file name.
+## Learn how to configure module-alias "path" because on auth.ts this didn't work on production mode (dist folder/files).
+## Classes are also used as interfaces, so in some files i could have extended them.

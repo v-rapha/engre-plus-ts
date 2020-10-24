@@ -2,7 +2,7 @@
   "App": {
     "staticDate": 1600311600000,
     "typeorm_path": {
-      "entities": "src/database/models/*.ts",
+      "entities": "src/models/*.ts",
       "migrations": "src/database/migrations/*.ts"
     }
   }

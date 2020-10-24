@@ -3,10 +3,12 @@ import jwt from 'jsonwebtoken';
 import config from 'config';
 
 export interface DecodedEmployee {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
+  employee: {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+  };
 }
 export default class AuthService {
   public static async hashPassword(

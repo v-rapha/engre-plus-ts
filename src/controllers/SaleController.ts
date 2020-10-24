@@ -6,11 +6,22 @@ import { Sale } from '../models/Sale';
 export class SaleController {
   public async create(req: Request, res: Response): Promise<void> {
     try {
+      const { client, description, price, initial_date, final_date } = req.body;
+      const id = req.decoded?.employee.id;
       const repository = getRepository(Sale);
-      const saleEntity = repository.create(req.body);
+      // console.info(id?.employee.id)
+      const saleEntity = repository.create({
+        client,
+        description,
+        price,
+        initial_date,
+        final_date,
+        employee: { id },
+      });
       const sale = await repository.save(saleEntity);
       res.status(201).send(sale);
     } catch (error) {
+      // console.log(error);
       if (error instanceof QueryFailedError) {
         res.status(422).send({ error: error.message });
       } else {

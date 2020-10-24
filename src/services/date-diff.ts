@@ -1,3 +1,4 @@
+import { Employee } from '../models/Employee';
 import config from 'config';
 import dayjs from 'dayjs';
 
@@ -7,7 +8,7 @@ export interface Work {
   price: number;
   initial_date: number;
   final_date: number;
-  employee?: string;
+  employee?: Partial<Employee>;
 }
 
 export interface WorkDateDiff

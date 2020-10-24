@@ -27,7 +27,7 @@ describe('Date-Diff Service', () => {
           price: 190.9,
           initial_date: DefaultDates.SEP_SEVENTEEN,
           final_date: DefaultDates.SEP_TWENTY_TWO,
-          employee: 'employee_id',
+          employee: { id: 'employee_id' },
         },
         {
           client: 'Will',
@@ -35,7 +35,7 @@ describe('Date-Diff Service', () => {
           price: 199.9,
           initial_date: DefaultDates.SEP_SIXTEEN,
           final_date: DefaultDates.SEP_SEVENTEEN,
-          employee: 'employee_id',
+          employee: { id: 'employee_id' },
         },
         {
           client: 'Raphael',
@@ -43,7 +43,7 @@ describe('Date-Diff Service', () => {
           price: 150.9,
           initial_date: DefaultDates.SEP_TWELVE,
           final_date: DefaultDates.SEP_SIXTEEN,
-          employee: 'employee_id',
+          employee: { id: 'employee_id' },
         },
       ];
 

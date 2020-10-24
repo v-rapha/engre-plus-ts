@@ -9,7 +9,7 @@
       "tokenExpiresIn": 10000
     },
     "typeorm_path": {
-      "entities": "dist/src/database/models/*.js",
+      "entities": "dist/src/models/*.js",
       "migrations": "dist/src/database/migrations/*.js"
     }
   }

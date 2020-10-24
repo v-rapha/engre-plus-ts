@@ -5,7 +5,7 @@ import config from 'config';
 // const ormconfig = require('../../ormconfig.js');
 const entitiesPath: string = config.has('App.typeorm_path.entities')
   ? config.get('App.typeorm_path.entities')
-  : 'src/database/models/*.ts';
+  : 'src/models/*.ts';
 const migrationsPath: string = config.has('App.typeorm_path.migrations')
   ? config.get('App.typeorm_path.migrations')
   : 'src/database/migrations/*.ts';
