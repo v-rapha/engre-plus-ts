@@ -156,30 +156,3 @@ describe('Date-Diff Service', () => {
     });
   });
 });
-
-describe('Format Date', () => {
-  const defaultDateDiff = new DateDiff();
-  it('should format the millisecond date for a readable date ("16/09/2020", "17/09/2020")', () => {
-    const sm = defaultDateDiff.formatDateWithMilliseconds([
-      DefaultDates.SEP_SIXTEEN,
-      DefaultDates.SEP_SEVENTEEN,
-    ]);
-    expect(sm).toEqual(['16/09/2020', '17/09/2020']);
-  });
-
-  it('should format the millisecond date for a readable date ("20/08/2020", "12/09/2020")', () => {
-    const sm = defaultDateDiff.formatDateWithMilliseconds([
-      DefaultDates.AUG_TWENTY,
-      DefaultDates.SEP_TWELVE,
-    ]);
-    expect(sm).toEqual(['20/08/2020', '12/09/2020']);
-  });
-
-  it('should format the millisecond date for a readable date ("17/09/2020", "17/10/2020")', () => {
-    const sm = defaultDateDiff.formatDateWithMilliseconds([
-      DefaultDates.SEP_SEVENTEEN,
-      DefaultDates.OCT_SEVENTEEN,
-    ]);
-    expect(sm).toEqual(['17/09/2020', '17/10/2020']);
-  });
-});

@@ -1,6 +1,6 @@
 import { Employee } from '../models/Employee';
 import config from 'config';
-import dayjs from 'dayjs';
+import { DateService } from './date';
 
 export interface Work {
   client: string;
@@ -27,7 +27,7 @@ export class DateDiff {
         work.final_date
       );
       // I had to convert to Number() because postgres was returning the milliseconds as string
-      const formattedDate = this.formatDateWithMilliseconds([
+      const formattedDate = DateService.convertMillisecondDateToStringDate([
         Number(work.initial_date),
         Number(work.final_date),
       ]);
@@ -43,15 +43,6 @@ export class DateDiff {
       worksWithDateDiff.push({ ...enrichedWorkData });
     }
     return worksWithDateDiff;
-  }
-
-  public formatDateWithMilliseconds(milliseconds: number[]): string[] {
-    const dates: string[] = [];
-    for (const millisecond of milliseconds) {
-      const formattedDate = dayjs(millisecond).format('DD/MM/YYYY');
-      dates.push(formattedDate);
-    }
-    return dates;
   }
 
   // TODO: try to make the method more clearer

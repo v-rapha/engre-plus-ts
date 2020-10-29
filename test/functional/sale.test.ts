@@ -1,7 +1,6 @@
 import { Employee } from '@src/models/Employee';
 import { Sale } from '@src/models/Sale';
 import AuthService from '@src/services/auth';
-import { DefaultDates } from '@src/services/__test__/date-diff.test';
 import { getRepository } from 'typeorm';
 
 describe('Sales functional tests', () => {
@@ -24,15 +23,23 @@ describe('Sales functional tests', () => {
         client: 'José Will',
         description: 'KSF90-Engrenagem',
         price: 190.9,
-        initial_date: DefaultDates.SEP_SIXTEEN,
-        final_date: DefaultDates.SEP_SEVEN,
+        initial_date: '2020-09-16',
+        final_date: '2020-09-07',
       };
       const response = await global.testRequest
         .post('/sales')
         .set({ 'x-access-token': token })
         .send(newSale);
       expect(response.status).toBe(201);
-      expect(response.body).toEqual(expect.objectContaining(newSale));
+      expect(response.body).toEqual(
+        expect.objectContaining({
+          ...newSale,
+          ...{
+            initial_date: expect.any(Number),
+            final_date: expect.any(Number),
+          },
+        })
+      );
     });
 
     it('should return 422 when there is a validation error', async () => {
@@ -41,7 +48,7 @@ describe('Sales functional tests', () => {
         description: 'KSF90-Engrenagem',
         price: 190.9,
         initial_date: 'invalid_string',
-        final_date: DefaultDates.SEP_SEVEN,
+        final_date: '2020-09-07',
       };
       const response = await global.testRequest
         .post('/sales')
@@ -49,7 +56,7 @@ describe('Sales functional tests', () => {
         .send(newSale);
       expect(response.status).toBe(422);
       expect(response.body).toEqual({
-        error: 'invalid input syntax for type bigint: "invalid_string"',
+        error: 'invalid input syntax for type bigint: "NaN"',
       });
     });
 
