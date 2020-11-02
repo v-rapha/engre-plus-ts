@@ -1,0 +1,11 @@
+{
+  "App": {
+    "port": "PORT",
+    "database": {
+      "postgresUrl": "DATABASE_URL"
+    },
+    "auth": {
+      "key": "JWT_SECRET_KEY"
+    }
+  }
+}
