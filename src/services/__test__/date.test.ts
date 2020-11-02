@@ -1,5 +1,5 @@
 import { DateService } from '../date';
-import { DefaultDates } from './date-diff.test';
+import { DefaultDates } from './diff-date.test';
 
 describe('Date Service', () => {
   // const defaultDateDiff = new DateDiff();

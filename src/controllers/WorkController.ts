@@ -1,5 +1,5 @@
 import { Sale } from '../models/Sale';
-import { DateDiff } from '../services/date-diff';
+import { DateDiff } from '../services/diff-date';
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 

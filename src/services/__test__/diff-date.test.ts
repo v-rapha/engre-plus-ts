@@ -1,4 +1,4 @@
-import { DateDiff, Work } from '../date-diff';
+import { DateDiff, Work } from '../diff-date';
 
 export enum DefaultDates {
   AUG_SIXTEEN = 1597546800000,

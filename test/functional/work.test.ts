@@ -1,7 +1,7 @@
 import { Employee } from '@src/models/Employee';
 import { Sale } from '@src/models/Sale';
 import AuthService from '@src/services/auth';
-import { DefaultDates } from '@src/services/__test__/date-diff.test';
+import { DefaultDates } from '@src/services/__test__/diff-date.test';
 import { getRepository } from 'typeorm';
 
 describe('Works functional tests', () => {
