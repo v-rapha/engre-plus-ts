@@ -1,7 +1,7 @@
 import { DateService } from '../date';
 import { DefaultDates } from './diff-date.test';
 
-describe.skip('Date Service', () => {
+describe('Date Service', () => {
   // const defaultDateDiff = new DateDiff();
   describe('Convert Millisecond Date To String Date', () => {
     it('should convert the millisecond date for a readable date ("16/09/2020", "17/09/2020")', () => {

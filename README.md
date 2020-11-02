@@ -6,3 +6,4 @@
 ## When i was creating the relationship between "employees" and "sales" tables i had a problem in the order to run the migrations (the CreateSalesTable migration was ahead of CreateEmployeeTable migration), so i had to change/invert the timestamp order, however it only works in the end of the class name and not on the file name.
 ## Learn how to configure module-alias "path" because on auth.ts this didn't work on production mode (dist folder/files).
 ## Classes are also used as interfaces, so in some files i could have extended them.
+## Try to run postgreSQL on github pipeline for the tests
