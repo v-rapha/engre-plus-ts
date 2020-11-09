@@ -24,10 +24,13 @@ jobs:
     - name: Start PostgreSQL
       uses: harmon758/postgresql-action@v1
       with:
-        postgresql-version: ${{ matrix.postgresql-version }}
+        postgresql version: ${{ matrix.postgresql-version }}
+        postgresql db: 'engre-plus'
+        postgresql user: 'v-rapha'
+        postgresql password: 'lplp12345'
 
     - name: Install dependencies
       run: yarn --frozen-lockfile
 
-    # - name: Run all tests
-    #   run: yarn test
+    - name: Run all tests
+      run: yarn test
