@@ -32,5 +32,8 @@ jobs:
     - name: Install dependencies
       run: yarn --frozen-lockfile
 
+    - name: Run all migrations
+      run: yarn typeorm migration:run
+
     - name: Run all tests
       run: yarn test
