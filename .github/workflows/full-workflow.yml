@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        postgresql-version: [13.0]
+        postgresql-version: [12.4]
 
     steps:
     - uses: actions/checkout@v2

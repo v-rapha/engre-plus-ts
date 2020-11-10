@@ -2,7 +2,7 @@ import { Employee } from '@src/models/Employee';
 import AuthService from '@src/services/auth';
 import { getRepository } from 'typeorm';
 
-describe('Users functional tests', () => {
+describe('Employees functional tests', () => {
   beforeEach(async () => await getRepository(Employee).delete({}));
   describe('When creating a new employee', () => {
     it('should successfully create a new employee with encrypted password', async () => {
