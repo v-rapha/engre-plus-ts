@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "set NODE_ENV=production && node dist/src/index.js",
+    "start": "set NODE_ENV=production&& node dist/src/index.js",
     "start:prod": "yarn build && node dist/src/index.js",
-    "start:dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start:dev": "set NODE_ENV=test&& ts-node-dev --respawn --transpile-only src/index.ts",
     "test": "yarn test:unit && yarn test:functional",
     "test:unit": "jest",
     "test:functional": "jest --projects ./test --runInBand",
