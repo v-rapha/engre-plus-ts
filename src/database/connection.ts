@@ -12,6 +12,7 @@ const migrationsPath: string = config.has('App.typeorm_path.migrations')
 
 console.log(entitiesPath);
 console.log(migrationsPath);
+console.log('POSTGRESQL: ' + config.util.getEnv('App.database.postgresUrl'))
 
 const connectionManager = getConnectionManager();
 export const connection = connectionManager.create({
