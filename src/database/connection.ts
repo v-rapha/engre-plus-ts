@@ -12,7 +12,7 @@ const migrationsPath: string = config.has('App.typeorm_path.migrations')
 
 console.log(entitiesPath);
 console.log(migrationsPath);
-console.log('POSTGRESQL: ' + config.get('App.database.postgresUrl'))
+console.log('POSTGRESQL: ' , config.get('App.database'))
 console.log('PORT: ' + config.get('App.port'))
 console.log('KEY: ' + config.get('App.auth.key'))
 
