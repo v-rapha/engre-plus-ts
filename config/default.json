@@ -10,8 +10,7 @@
     },
     "typeorm_path": {
       "entities": "dist/src/models/*.js",
-      "migrations": "dist/src/database/migrations/*.js",
-      "migrationsDirCli": "dist/src/database/migrations"
+      "migrations": "dist/src/database/migrations/*.js"
     }
   }
 }
