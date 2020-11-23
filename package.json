@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "engre-plus-ts",
   "version": "1.0.0",
   "description": "engre plus typescript API",
@@ -16,8 +15,8 @@
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "style:check": "prettier --check src/**/*.ts test/**/*.ts",
     "style:fix": "prettier --write src/**/*.ts test/**/*.ts",
-    "typeorm:canceled": "node --require ts-node/register ./node_modules/typeorm/cli.js",
-    "typeorm": "npx ts-node ./node_modules/typeorm/cli.js"
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "typeorm:canceled": "npx ts-node ./node_modules/typeorm/cli.js"
   },
   "repository": {
     "type": "git",
