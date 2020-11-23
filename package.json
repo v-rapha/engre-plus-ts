@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "engre-plus-ts",
   "version": "1.0.0",
   "description": "engre plus typescript API",
