@@ -9,6 +9,9 @@ const entitiesPath: string = config.has('App.typeorm_path.entities')
 const migrationsPath: string = config.has('App.typeorm_path.migrations')
   ? config.get('App.typeorm_path.migrations')
   : 'src/database/migrations/*.ts';
+const migrationsDirCli: string = config.has('App.typeorm_path.migrationsDirCli')
+  ? config.get('App.typeorm_path.migrationsDirCli')
+  : 'src/database/migrations';
 
 console.log('ENTITIES_PATH', entitiesPath);
 console.log('MIGRATIONS_PATH', migrationsPath);
@@ -23,6 +26,6 @@ export const connection = connectionManager.create({
   entities: [entitiesPath],
   migrations: [migrationsPath],
   cli: {
-    migrationsDir: 'src/database/migrations',
+    migrationsDir: migrationsDirCli,
   },
 });
