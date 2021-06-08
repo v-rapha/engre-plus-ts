@@ -7,3 +7,4 @@
 ## Learn how to configure module-alias "path" because on auth.ts this didn't work on production mode (dist folder/files).
 ## Classes are also used as interfaces, so in some files i could have extended them.
 ## Try to run postgreSQL on github pipeline for the tests
+## Just test
