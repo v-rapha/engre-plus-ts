@@ -29,13 +29,13 @@ jobs:
         postgresql user: 'v-rapha'
         postgresql password: 'lplp12345'
 
-    - name: Install dependencies
-      run: yarn --frozen-lockfile
+    # - name: Install dependencies
+    #   run: yarn --frozen-lockfile
 
-    - name: Run all migrations
-      run: yarn typeorm migration:run
+    # - name: Run all migrations
+    #   run: yarn typeorm migration:run
 
-    - name: Run all tests
-      run: yarn test
-      env:
-        CI: true
+    # - name: Run all tests
+    #   run: yarn test
+    #   env:
+    #     CI: true
