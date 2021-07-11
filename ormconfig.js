@@ -16,6 +16,6 @@ module.exports = {
     "src/database/migrations/*.ts"
   ],
   cli: {
-    migrationsDir: "src/database/migrations"
+    migrationsDir: config.get('App.typeorm_path.migrations')
   }
 }
