@@ -29,6 +29,6 @@ export const connection = connectionManager.create({
     }
   },
   cli: {
-    migrationsDir: migrationsPath,
+    migrationsDir: 'dist/src/database/migrations',
   },
 });
