@@ -22,6 +22,7 @@ export const connection = connectionManager.create({
   url: config.get('App.database.postgresUrl'),
   entities: [entitiesPath],
   migrations: [migrationsPath],
+  ssl: true,
   cli: {
     migrationsDir: 'src/database/migrations',
   },

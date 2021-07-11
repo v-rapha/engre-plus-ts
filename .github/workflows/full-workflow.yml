@@ -21,21 +21,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Start PostgreSQL
-      uses: harmon758/postgresql-action@v1
-      with:
-        postgresql version: ${{ matrix.postgresql-version }}
-        postgresql db: 'engre-plus'
-        postgresql user: 'v-rapha'
-        postgresql password: 'lplp12345'
+    # - name: Start PostgreSQL
+    #   uses: harmon758/postgresql-action@v1
+    #   with:
+    #     postgresql version: ${{ matrix.postgresql-version }}
+    #     postgresql db: 'engre-plus'
+    #     postgresql user: 'v-rapha'
+    #     postgresql password: 'lplp12345'
 
-    - name: Install dependencies
-      run: yarn --frozen-lockfile
+    # - name: Install dependencies
+    #   run: yarn --frozen-lockfile
 
-    - name: Run all migrations
-      run: yarn typeorm migration:run
+    # - name: Run all migrations
+    #   run: yarn typeorm migration:run
 
-    - name: Run all tests
-      run: yarn test
-      env:
-        CI: true
+    # - name: Run all tests
+    #   run: yarn test
+    #   env:
+    #     CI: true

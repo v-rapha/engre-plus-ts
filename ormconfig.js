@@ -3,11 +3,12 @@ const config = require('config');
 module.exports = {
   type: "postgres",
   url: config.get('App.database.postgresUrl'),
-  extra: {
-    ssl: {
-      rejectUnauthorized: false
-    }
-  },
+  ssl: true,
+  // extra: {
+  //   ssl: {
+  //     rejectUnauthorized: false
+  //   }
+  // },
   entities: [
     "src/database/models/*.ts"
   ],
