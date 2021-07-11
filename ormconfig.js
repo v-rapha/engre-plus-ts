@@ -4,11 +4,11 @@ module.exports = {
   type: "postgres",
   url: config.get('App.database.postgresUrl'),
   ssl: true,
-  // extra: {
-  //   ssl: {
-  //     rejectUnauthorized: false
-  //   }
-  // },
+  extra: {
+    ssl: {
+      rejectUnauthorized: false
+    }
+  },
   entities: [
     "src/database/models/*.ts"
   ],

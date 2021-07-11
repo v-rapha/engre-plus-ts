@@ -23,6 +23,11 @@ export const connection = connectionManager.create({
   entities: [entitiesPath],
   migrations: [migrationsPath],
   ssl: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false
+    }
+  },
   cli: {
     migrationsDir: 'src/database/migrations',
   },
